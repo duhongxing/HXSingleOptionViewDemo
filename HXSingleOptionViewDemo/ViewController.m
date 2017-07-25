@@ -30,17 +30,6 @@
 
     [self showAlert];
 
-    //登录请求
-    [HXHttpTool loginWithUserName:@"18310981905" Password:@"111111" success:^(id response) {
-
-        NSLog(@"%@",response);
-
-    } failure:^(NSError *error) {
-
-        NSLog(@"%@",error);
-
-    }];
-
 }
 
 - (IBAction)clickButton:(id)sender {
@@ -66,6 +55,20 @@
     }
 }
 
+#pragma mark =========== test method =======
+
+- (void)testFunc{
+    //登录请求
+    [HXHttpTool loginWithUserName:@"183xxxx1905" Password:@"111111" success:^(id response) {
+
+        NSLog(@"%@",response);
+
+    } failure:^(NSError *error) {
+
+        NSLog(@"%@",error);
+        
+    }];
+}
 
 
 @end
