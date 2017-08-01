@@ -51,29 +51,9 @@
     self.testSelfView.question = self.dataArray[0];
 
 
-    __weak typeof(self) weakSelf = self;
-
-    __block int wkIndex = indexQuestion;
-
     self.testSelfView.selectBlock = ^(BTTestSelfView *currentView,NSString *result){
 
-        wkIndex++;
-
-        if (wkIndex > 4) {
-
-            NSLog(@"%d",wkIndex);
-
-            TestResultViewController *resultVC =[[TestResultViewController alloc]init];
-            [weakSelf.navigationController pushViewController:resultVC animated:YES];
-
-        }else{
-            [weakSelf getDataArrayWithIndex:wkIndex];
-            weakSelf.testSelfView.question = [weakSelf.dataArray lastObject];
-        }
-
         NSLog(@"选择的结果: --> %@",result);
-
-        NSLog(@"%d",wkIndex);
     };
 
 }

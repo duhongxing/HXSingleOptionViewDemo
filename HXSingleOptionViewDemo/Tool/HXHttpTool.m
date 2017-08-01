@@ -12,7 +12,7 @@
 #import "NSString+Hashing.h"
 
 #define DEV_SERVER @"" //开发环境
-#define PRO_SERVER @"http://app.xxxxxxxxx/index.php?g=apps&m=user&a=" //生产环境
+#define PRO_SERVER @"" //生产环境
 #define MY_String @"" //自己的字符串
 
 

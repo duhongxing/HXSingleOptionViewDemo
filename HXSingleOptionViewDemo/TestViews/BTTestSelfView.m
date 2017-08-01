@@ -71,12 +71,20 @@ static CGFloat const defaultHeight = 50;
 
         optionView.btnClickBlock = ^(BTTestSelfOptionView *currentOption,UIButton *optionBtn){
 
-            if ((_currentOptionView != nil && _currentOptionView.tag == currentOption.tag)||_currentOptionView == nil) {
+            if ((_currentOptionView != nil && _currentOptionView.tag == currentOption.tag)) {
+                if (_currentOptionView.isSelected) {
+                    _currentOptionView.isSelected = NO;
+                }else{
+                    _currentOptionView.isSelected = YES;
+                    _currentOptionView = currentOption;
+                    self.selectBlock(self,optionBtn.titleLabel.text);
+                }
+            }else{
+                _currentOptionView.isSelected = NO;
                 if (optionBtn.selected) {
                     optionBtn.backgroundColor =[UIColor whiteColor];
                     [optionBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
                     optionBtn.selected = NO;
-                    _currentOptionView = nil;
                 }else{
                     optionBtn.backgroundColor =[UIColor redColor];
                     [optionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
